@@ -1,4 +1,4 @@
-# :checkered_flag: NOME DO PROJETO
+# :checkered_flag: OvenFlow
 
 O OvenFlow é uma aplicação web de autoatendimento para uma pizzaria. O sistema permite que clientes visualizem o cardápio, escolham pizzas e outros produtos, adicionem itens ao carrinho e realizem pedidos. Funcionários poderão acompanhar e atualizar o status dos pedidos, enquanto administradores poderão gerenciar os produtos e categorias disponíveis no cardápio.
 
