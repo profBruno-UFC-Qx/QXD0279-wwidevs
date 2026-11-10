@@ -1,7 +1,13 @@
 <script setup lang="ts">
-import HomeView from './modules/public/views/HomeView.vue';
+import AppHeader from "./components/AppHeader.vue";
+// import HomeView from "./modules/public/views/HomeView.vue";
 </script>
 
 <template>
-  <HomeView />
+  <v-app>
+    <AppHeader />
+    <v-main>
+      <RouterView />
+    </v-main>
+  </v-app>
 </template>
