@@ -1,4 +1,4 @@
-<script scoped lang="ts">
+<script setup lang="ts">
 
 </script>
 
