@@ -8,8 +8,8 @@
       <v-icon icon="mdi-pizza" class="pl-6" color="white" size="large" />
     </template>
     <v-app-bar-title class="font-display">Oven Flow</v-app-bar-title>
-    <v-btn class="primary" variant="text">Cardápio</v-btn>
-    <v-btn color="primary" variant="flat">Entrar</v-btn>
+    <v-btn :to="{ name: 'home' }" class="primary ma-2" variant="text">Cardápio</v-btn>
+    <v-btn :to="{ name: 'login' }"  color="primary" variant="flat">Entrar</v-btn>
   </v-app-bar>
 
 </template>
