@@ -49,7 +49,7 @@ const routes = [
     {
         path:  '/cliente/pedidos/:id',
         name: 'pedido',
-        compontente: OrderDetailView,
+        component: OrderDetailView,
         meta:{
             requiresAuth: true,
             roles: ['CUSTOMER']
@@ -78,7 +78,7 @@ const routes = [
     {
         path: '/admin/categorias',
         name: 'admin-categorias',
-        compontent: CategoriesView,
+        component: CategoriesView,
         meta:{
             requiresAuth: true,
             roles: ['ADMIN']
@@ -87,7 +87,7 @@ const routes = [
     {
         path: '/admin/orders',
         name: 'historico-pedidos',
-        compontent: OrdersView,
+        component: OrdersView,
         meta: {
             requiresAuth: true,
             roles: ['ADMIN']

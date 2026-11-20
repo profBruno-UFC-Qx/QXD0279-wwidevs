@@ -1,14 +1,33 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import AuthCard from '../components/AuthCard.vue';
+import { useAuthStore } from '../../../stores/auth.ts';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+const authStore = useAuthStore();
 
 const nome = ref('');
 const email = ref('');
 const senha = ref('');
 const carregando = ref(false);
+const errorMessage = ref('')
 
-function handleRegister() {
-  console.log('TO DO');
+async function handleRegister() {
+  try {
+    carregando.value = true;
+    errorMessage.value = '';
+
+    await authStore.register({name: nome.value, email: email.value, password: senha.value});
+
+    router.push({name: 'login'})
+
+  } catch (error: any) {  
+    errorMessage.value = error.response?.data?.message || 'Erro ao cadastrar';
+    alert(error.response?.data?.message || "Erro ao realizar operação.");
+  } finally {
+    carregando.value = false;
+  }
 }
 </script>
 

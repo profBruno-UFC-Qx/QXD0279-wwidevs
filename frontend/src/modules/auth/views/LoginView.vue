@@ -1,13 +1,39 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import AuthCard from '../components/AuthCard.vue';
+import { useRouter } from 'vue-router';
+import { useAuthStore } from '../../../stores/auth.ts';
+
+
+const router = useRouter();
+const authStore = useAuthStore();
 
 const email = ref('');
 const senha = ref('');
 const carregando = ref(false);
+const errorMessage = ref('');
 
-function handleLogin() {
-  console.log('TO DO');
+async function handleLogin() {
+  try {
+    carregando.value = true;
+    errorMessage.value = ''
+
+    await authStore.login({email: email.value, password: senha.value}); 
+
+    if (authStore.role === 'ADMIN') {
+      router.push({name: 'admin-produtos'});
+    } else if (authStore.role === 'EMPLOYEE') {
+      router.push({name: 'ordem-pedidos'});
+    } else {
+      router.push({name: 'home'})
+    }
+  } catch (error: any) {
+    errorMessage.value = error.response?.data?.message || "Erro ao fazer login.";
+    alert(error.response?.data?.message || "Erro ao realizar operação.");
+  } finally {
+    carregando.value = false;
+  }
+  
 }
 </script>
 
